@@ -60,16 +60,16 @@
     "tags": [
       "PyTorch",
       "CNN",
-      "Spectrograms"
+      "Mel spectrograms"
     ],
-    "description": "Closed-set speaker identification across 605 voices using a custom VGG-style convolutional network.",
+    "description": "Closed-set speaker identification across 605 voices using a VGG16-Lite-inspired 2D CNN.",
     "result": "86.60% best validation accuracy",
     "resultNote": "72,766 spectrogram samples · best checkpoint at epoch 45.",
     "summary": "A seven-layer convolutional network learns to identify speakers from pre-extracted spectrograms. The pipeline includes normalization, augmentation, stratified splitting, and checkpoint selection.",
     "methods": [
-      "Frequency/time masking, Gaussian noise, and circular shifts for training augmentation.",
-      "Single-channel 256 × 256 spectrogram inputs and 605 output classes.",
-      "Training curves reconstructed from saved epoch logs; weighted validation F1 of 0.8641."
+      "Designed a VGG16-Lite-inspired 2D CNN with batch normalization and dropout for speaker classification.",
+      "Trained on augmented Mel spectrograms, using frequency/time masking, Gaussian noise, and circular shifts.",
+      "Evaluated 605 known speaker classes using validation accuracy and F1, with checkpoint selection and training-curve analysis."
     ],
     "limitation": "Validation clips are split at the file level, not grouped by recording session. No unknown-speaker verification, independent test result, or raw-audio preprocessing pipeline is demonstrated. The trained checkpoint is not yet included.",
     "extra": {
@@ -81,9 +81,9 @@
     "repo": "VoxCeleb-Classification",
     "group": "Machine learning",
     "solution": [
-      "Frequency/time masking, Gaussian noise, and circular shifts for training augmentation.",
-      "Single-channel 256 × 256 spectrogram inputs and 605 output classes.",
-      "Training curves reconstructed from saved epoch logs; weighted validation F1 of 0.8641."
+      "Designed a VGG16-Lite-inspired 2D CNN with batch normalization and dropout for speaker classification.",
+      "Trained on augmented Mel spectrograms, using frequency/time masking, Gaussian noise, and circular shifts.",
+      "Evaluated 605 known speaker classes using validation accuracy and F1, with checkpoint selection and training-curve analysis."
     ],
     "scope": "Public repository",
     "evidence": "Documented project results"
