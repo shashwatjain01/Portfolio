@@ -1,0 +1,406 @@
+[
+  {
+    "id": "llm-quantization",
+    "title": "LLM post-training quantization",
+    "category": "LLM SYSTEMS / CAPSTONE",
+    "group": "Generative AI",
+    "visual": "quantization",
+    "tags": [
+      "PyTorch",
+      "CUDA",
+      "Triton",
+      "NVML"
+    ],
+    "description": "Studying the quality and efficiency trade-offs of low-precision large language models.",
+    "motivation": "Large language models demand substantial memory and compute. Lower precision is promising, but its value depends on model quality and the way each workload executes.",
+    "need": "Compare quantized models with 16-bit baselines across quality, memory, latency, throughput, and GPU energy, rather than judging efficiency from model size alone.",
+    "solution": [
+      "Benchmarked FP4, NF4, and NVFP4 against 16-bit baselines across Mistral, Llama, Qwen, Phi, and Gemma.",
+      "Measured model quality, GPU memory, latency, throughput, and GPU energy using Python, PyTorch, CUDA, Triton, and NVML.",
+      "Profiled quantized execution paths and repeated probes to examine workload-dependent trade-offs."
+    ],
+    "result": "5 LLM families",
+    "resultNote": "FP4, NF4, and NVFP4 compared with 16-bit baselines.",
+    "limitation": "The résumé describes the evaluation scope. Aggregate quality, speed, and energy improvements are not published here; no universal efficiency gain is claimed.",
+    "scope": "Capstone project",
+    "evidence": "Résumé summary"
+  },
+  {
+    "id": "multilingual-rag",
+    "title": "Multilingual RAG platform",
+    "category": "RETRIEVAL / GENERATIVE AI",
+    "group": "Generative AI",
+    "visual": "rag",
+    "tags": [
+      "LangChain",
+      "FAISS",
+      "RAG"
+    ],
+    "description": "A multilingual chatbot that retrieves document context before generating an answer.",
+    "motivation": "Useful answers often depend on information contained in a specific document collection. Retrieval can give a language model relevant context before it responds.",
+    "need": "Support document-grounded question answering through a connected retrieval and generation pipeline, including multilingual queries.",
+    "solution": [
+      "Implemented document chunking and embeddings, with FAISS for retrieving relevant context.",
+      "Connected retrieval to LangChain to generate responses grounded in the supplied documents.",
+      "Used query classification and prompt engineering to support relevant retrieval and answer generation."
+    ],
+    "result": "Document-grounded responses",
+    "resultNote": "September–November 2025 · résumé project.",
+    "limitation": "No retrieval benchmark, supported-language list, or production deployment is documented in this portfolio.",
+    "scope": "Résumé project",
+    "evidence": "Résumé summary"
+  },
+  {
+    "id": "speaker-identification",
+    "slug": "VoxCeleb-Classification",
+    "title": "VoxCeleb speaker identification",
+    "category": "AUDIO / DEEP LEARNING",
+    "filter": "deep-learning",
+    "visual": "audio",
+    "tags": [
+      "PyTorch",
+      "CNN",
+      "Spectrograms"
+    ],
+    "description": "Closed-set speaker identification across 605 voices using a custom VGG-style convolutional network.",
+    "result": "86.60% best validation accuracy",
+    "resultNote": "72,766 spectrogram samples · best checkpoint at epoch 45.",
+    "summary": "A seven-layer convolutional network learns to identify speakers from pre-extracted spectrograms. The pipeline includes normalization, augmentation, stratified splitting, and checkpoint selection.",
+    "methods": [
+      "Frequency/time masking, Gaussian noise, and circular shifts for training augmentation.",
+      "Single-channel 256 × 256 spectrogram inputs and 605 output classes.",
+      "Training curves reconstructed from saved epoch logs; weighted validation F1 of 0.8641."
+    ],
+    "limitation": "Validation clips are split at the file level, not grouped by recording session. No unknown-speaker verification, independent test result, or raw-audio preprocessing pipeline is demonstrated. The trained checkpoint is not yet included.",
+    "extra": {
+      "label": "View training curves",
+      "path": "blob/main/assets/training_history_reconstructed.svg"
+    },
+    "motivation": "Speech carries information about the person speaking as well as the words being said. This project investigates how a convolutional model can learn those distinguishing patterns.",
+    "need": "Identify speakers from spectrograms across a large, fixed set of known identities, with a repeatable training and evaluation workflow.",
+    "repo": "VoxCeleb-Classification",
+    "group": "Machine learning",
+    "solution": [
+      "Frequency/time masking, Gaussian noise, and circular shifts for training augmentation.",
+      "Single-channel 256 × 256 spectrogram inputs and 605 output classes.",
+      "Training curves reconstructed from saved epoch logs; weighted validation F1 of 0.8641."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "molecular-toxicity",
+    "slug": "Molecular-toxicity-gnn",
+    "title": "Molecular toxicity prediction",
+    "category": "GRAPH NEURAL NETWORKS",
+    "filter": "deep-learning",
+    "visual": "molecule",
+    "tags": [
+      "PyTorch Geometric",
+      "GCN",
+      "Tox21"
+    ],
+    "description": "Representing molecules as graphs to predict activity across 12 toxicity assays.",
+    "result": "0.7705 mean validation ROC-AUC",
+    "resultNote": "7,823 molecules · 80/20 random training/validation split. ROC-AUC is not an accuracy percentage.",
+    "summary": "A graph convolutional network learns molecular representations from atom features and bond connectivity, with masked binary cross-entropy to handle missing assay labels.",
+    "methods": [
+      "Three graph convolution layers with 128 hidden channels and global mean pooling.",
+      "Adam optimization, learning-rate scheduling, checkpointing, and early stopping.",
+      "Visual analysis of assay performance, missing labels, molecular graphs, and learned embeddings."
+    ],
+    "limitation": "No scaffold split or independent test set. The notebook’s new-SMILES inference uses a different feature encoding from training; its example toxicity scores are not validated predictions.",
+    "extra": {
+      "label": "Explore validation results",
+      "path": "blob/main/per_task_auc.png"
+    },
+    "motivation": "Molecular structure contains relationships that are difficult to capture with flat feature tables. This project explores learning directly from atoms and bonds.",
+    "need": "Predict activity across multiple toxicity assays while accounting for missing labels and the connected structure of each molecule.",
+    "repo": "Molecular-toxicity-gnn",
+    "group": "Machine learning",
+    "solution": [
+      "Three graph convolution layers with 128 hidden channels and global mean pooling.",
+      "Adam optimization, learning-rate scheduling, checkpointing, and early stopping.",
+      "Visual analysis of assay performance, missing labels, molecular graphs, and learned embeddings."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "esg-risk",
+    "title": "ESG risk analysis dashboard",
+    "category": "BUSINESS INTELLIGENCE",
+    "group": "Data & language",
+    "visual": "esg",
+    "tags": [
+      "Power BI",
+      "Data modeling",
+      "Visualization"
+    ],
+    "description": "English and Marathi dashboards for exploring village-level ESG survey results.",
+    "motivation": "Survey responses can be difficult to interpret when risk signals are spread across villages, focus groups, and individual questions.",
+    "need": "Make environmental, social, and governance results easier to investigate at both summary and question level, in English and Marathi.",
+    "solution": [
+      "Built Power BI dashboards covering village-level survey results, risk indices, and ESG dimension scores.",
+      "Added filters by village, focus group, and ESG dimension to support targeted investigation.",
+      "Included question-level analysis and response counts to help identify sources of risk."
+    ],
+    "result": "English + Marathi",
+    "resultNote": "Two language views for village-level ESG analysis.",
+    "limitation": "This page summarizes the résumé project. Survey data, computed scores, and impact measurements are not published here.",
+    "scope": "Résumé project",
+    "evidence": "Résumé summary"
+  },
+  {
+    "id": "polymer-properties",
+    "slug": "THE-Invincibles",
+    "title": "Polymer property prediction",
+    "category": "MATERIALS / MACHINE LEARNING",
+    "filter": "deep-learning",
+    "visual": "polymer",
+    "tags": [
+      "MPNN",
+      "Ensembling",
+      "Cheminformatics"
+    ],
+    "description": "A team pipeline for predicting seven polymer properties from repeat-unit SMILES.",
+    "result": "7 target polymer properties",
+    "resultNote": "Team project — The Invincibles. Architecture and methods are described in the repository.",
+    "summary": "A multi-property approach combining graph representation learning, chemical descriptors, structural invariance, and heterogeneous ensembles to study polymer behavior.",
+    "methods": [
+      "CRU mapping to standardize equivalent repeat-unit representations.",
+      "MPNN representations and self-supervised pretraining.",
+      "Descriptor and fingerprint features, cross-task learning, stacked models, and attribution."
+    ],
+    "limitation": "The repository overview describes the approach; no verified per-property benchmark is presented here. This is a team project, and individual contributions are not separately quantified in the public README.",
+    "motivation": "The relationship between polymer structure and material behavior motivates learning representations from repeat-unit chemistry.",
+    "need": "Predict several material properties from SMILES while addressing equivalent structural representations and combining complementary model signals.",
+    "repo": "THE-Invincibles",
+    "group": "Machine learning",
+    "solution": [
+      "CRU mapping to standardize equivalent repeat-unit representations.",
+      "MPNN representations and self-supervised pretraining.",
+      "Descriptor and fingerprint features, cross-task learning, stacked models, and attribution."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "market-anomalies",
+    "slug": "Market-Anomaly-Study",
+    "title": "Market anomaly analysis",
+    "category": "STATISTICAL RESEARCH",
+    "filter": "data",
+    "visual": "market",
+    "tags": [
+      "Python",
+      "Mahalanobis distance",
+      "FYERS"
+    ],
+    "description": "A multivariate look at anomalous behavior across three Indian market indices.",
+    "result": "3 Nifty indices · 14 saved figures",
+    "resultNote": "Nifty 50, Nifty Midcap 150, and Nifty Smallcap 250. Coauthored with Kartik Soni.",
+    "summary": "An exploratory research pipeline combining rolling feature Z-scores, Mahalanobis distance, cross-index return divergence, and lead–lag regime analysis.",
+    "methods": [
+      "Daily OHLCV acquisition with the FYERS API.",
+      "Return, high–low spread, and realized volatility features.",
+      "Trailing 126-observation multivariate baselines and cross-capitalization comparisons."
+    ],
+    "limitation": "The coauthored manuscript is unpublished and has not been peer reviewed. Detector flags are not independently verified financial events. No trading backtest or predictive accuracy is claimed.",
+    "extra": {
+      "label": "Read unpublished manuscript",
+      "path": "blob/main/paper/market_anomaly_manuscript.pdf"
+    },
+    "motivation": "Looking at a single price series can hide relationships between market segments. This study explores unusual behavior across multiple indices and features.",
+    "need": "Create an interpretable exploratory workflow for comparing returns, volatility, and cross-index divergence without presenting detector flags as verified events.",
+    "repo": "Market-Anomaly-Study",
+    "group": "Data & language",
+    "solution": [
+      "Daily OHLCV acquisition with the FYERS API.",
+      "Return, high–low spread, and realized volatility features.",
+      "Trailing 126-observation multivariate baselines and cross-capitalization comparisons."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "news-classification",
+    "slug": "Fake-News-Detection",
+    "title": "News article classification",
+    "category": "NATURAL LANGUAGE PROCESSING",
+    "filter": "data",
+    "visual": "text",
+    "tags": [
+      "TF-IDF",
+      "Scikit-learn",
+      "Linear SVM"
+    ],
+    "description": "Comparing three classical machine learning models for news article classification.",
+    "result": "99.43% recorded test accuracy",
+    "resultNote": "Linear SVM · 11,225 test articles in the notebook’s saved classification reports.",
+    "summary": "An end-to-end text classification experiment covering dataset inspection, binary labeling, text cleaning, TF-IDF features, model comparison, and manual prediction examples.",
+    "methods": [
+      "Logistic Regression, Random Forest, and a linear support vector machine.",
+      "TF-IDF fitted on training text and applied to held-out text.",
+      "Accuracy, precision, recall, and F1 reported from saved notebook outputs."
+    ],
+    "limitation": "A random article split does not establish generalization to new publishers or dates. Source overlap and repeated articles may inflate performance. This is dataset-based classification, not independent fact-checking.",
+    "motivation": "Text classification offers a practical way to study how language features influence model decisions. This project compares classical methods on labeled news articles.",
+    "need": "Build a reproducible text-processing and model-comparison pipeline, while separating dataset performance from real-world fact-checking.",
+    "repo": "Fake-News-Detection",
+    "group": "Data & language",
+    "solution": [
+      "Logistic Regression, Random Forest, and a linear support vector machine.",
+      "TF-IDF fitted on training text and applied to held-out text.",
+      "Accuracy, precision, recall, and F1 reported from saved notebook outputs."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "home-energy",
+    "slug": "Home-energy-optimization",
+    "title": "Home energy optimization",
+    "category": "REINFORCEMENT LEARNING",
+    "filter": "systems",
+    "visual": "energy",
+    "tags": [
+      "DQN",
+      "Gymnasium",
+      "Streamlit"
+    ],
+    "description": "Learning appliance schedules under simulated electricity tariffs, with an interactive dashboard.",
+    "result": "71.4% lower simulated daily cost",
+    "resultNote": "One simulated day against an always-on controllable-appliance baseline; not real household savings.",
+    "summary": "A custom Gymnasium environment and Stable-Baselines3 DQN balance electricity cost, a comfort proxy, peak demand, and appliance switching over a 24-hour day.",
+    "methods": [
+      "Eight ON/OFF combinations for AC, washing machine, and dishwasher.",
+      "100,000 training timesteps and hourly time-of-use pricing.",
+      "Streamlit dashboard with appliance heatmaps, cost comparisons, and a 24-hour replay."
+    ],
+    "limitation": "The synthetic tariff, simplified always-on baseline, and binary controls limit real-world interpretation. The simulation has no realistic appliance-cycle or temperature dynamics.",
+    "extra": {
+      "label": "See dashboard preview",
+      "path": "blob/main/Dashboard_SS1.png"
+    },
+    "motivation": "Electricity pricing varies over time, creating a scheduling problem for controllable appliances. This project explores that problem through reinforcement learning.",
+    "need": "Study the trade-offs between simulated electricity cost, comfort, peak demand, and appliance switching in an interactive environment.",
+    "repo": "Home-energy-optimization",
+    "group": "Applications",
+    "solution": [
+      "Eight ON/OFF combinations for AC, washing machine, and dishwasher.",
+      "100,000 training timesteps and hourly time-of-use pricing.",
+      "Streamlit dashboard with appliance heatmaps, cost comparisons, and a 24-hour replay."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "mathquest",
+    "slug": "MathQuest",
+    "title": "MathQuest learning platform",
+    "category": "WEB / LEARNING EXPERIENCE",
+    "filter": "systems",
+    "visual": "math",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    "description": "A learning website for grades 5–8, with practice sheets, challenges, and a request/feedback hub.",
+    "result": "Grades 5–8",
+    "resultNote": "A web learning project with grade-based practice content and weekly challenge features.",
+    "summary": "MathQuest brings mathematics practice into a colorful, quest-oriented interface. The repository includes the frontend, challenge data, visual assets, and a Supabase setup script.",
+    "methods": [
+      "Grade-based sections and a challenge interface.",
+      "Practice-sheet navigation and a request/feedback hub.",
+      "Responsive HTML, CSS, and JavaScript frontend."
+    ],
+    "limitation": "This portfolio links to the source repository. Availability of any separately hosted application or backend has not been verified.",
+    "motivation": "Regular, approachable practice can make learning mathematics easier to sustain. MathQuest organizes practice around school grades and challenges.",
+    "need": "Give learners in grades 5–8 a clear place to find practice material, attempt challenges, and request help or share feedback.",
+    "repo": "MathQuest",
+    "group": "Applications",
+    "solution": [
+      "Grade-based sections and a challenge interface.",
+      "Practice-sheet navigation and a request/feedback hub.",
+      "Responsive HTML, CSS, and JavaScript frontend."
+    ],
+    "scope": "Public repository",
+    "evidence": "Documented project results"
+  },
+  {
+    "id": "la-crime",
+    "title": "LA crime analysis dashboard",
+    "category": "EXPLORATORY DATA ANALYSIS",
+    "group": "Data & language",
+    "visual": "map",
+    "tags": [
+      "Power BI",
+      "LAPD data",
+      "Analytics"
+    ],
+    "description": "Exploring spatial and temporal patterns in Los Angeles crime data.",
+    "motivation": "Location and time provide complementary views of recorded crime. Exploring them together can make a large dataset easier to understand.",
+    "need": "Organize LAPD records into an interactive view of spatial concentrations and temporal patterns.",
+    "solution": [
+      "Analyzed LAPD crime data for spatial and temporal patterns.",
+      "Built Power BI dashboards with drill-downs for exploring hotspots and changes over time."
+    ],
+    "result": "Spatial + temporal exploration",
+    "resultNote": "August–October 2025 · earlier résumé project.",
+    "limitation": "Exploratory patterns describe recorded data; they do not establish causes or predict individual behavior. No impact measurement is claimed.",
+    "scope": "Additional project",
+    "evidence": "Earlier résumé summary"
+  },
+  {
+    "id": "appointment-system",
+    "title": "Doctor–patient appointment system",
+    "category": "DATABASE APPLICATION",
+    "group": "Applications",
+    "visual": "calendar",
+    "tags": [
+      "Streamlit",
+      "MySQL",
+      "SQL"
+    ],
+    "description": "Role-based appointment scheduling supported by a normalized relational database.",
+    "motivation": "Scheduling involves several users and related records. A structured database can help keep those relationships understandable and consistent.",
+    "need": "Coordinate appointments through role-based access, clear status tracking, and a carefully designed relational data model.",
+    "solution": [
+      "Built a Streamlit application with role-based access and appointment status tracking.",
+      "Designed a BCNF-normalized MySQL database and ER diagrams for the application data.",
+      "Implemented scheduling workflows around the relational model."
+    ],
+    "result": "Role-based scheduling",
+    "resultNote": "February–March 2025 · earlier résumé project.",
+    "limitation": "This page describes the résumé project. No live medical service, production deployment, or operational outcome is claimed.",
+    "scope": "Additional project",
+    "evidence": "Earlier résumé summary"
+  },
+  {
+    "id": "water-leakage",
+    "title": "Underground water leakage detection",
+    "category": "CONNECTED SYSTEMS / IoT",
+    "group": "Applications",
+    "visual": "water",
+    "tags": [
+      "ESP32",
+      "MQTT",
+      "Streamlit"
+    ],
+    "description": "Connecting flow sensors to a live monitoring dashboard and email alerts.",
+    "motivation": "Hidden pipelines are difficult to observe directly. Sensor readings can provide a more accessible view of changes in water flow.",
+    "need": "Bring sensor measurements into a live monitoring interface and notify users when the system detects a potential leak.",
+    "solution": [
+      "Used flow sensors and ESP32 hardware to detect pipeline leakage.",
+      "Streamed sensor measurements through MQTT to a live Streamlit dashboard.",
+      "Added automated email alerts to the monitoring workflow."
+    ],
+    "result": "Sensor → stream → dashboard",
+    "resultNote": "January–March 2025 · earlier résumé project.",
+    "limitation": "No field validation, detection accuracy, or measured water savings are documented here.",
+    "scope": "Additional project",
+    "evidence": "Earlier résumé summary"
+  }
+]

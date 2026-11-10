@@ -1,29 +1,15 @@
-# Shashwat Jain — Story Mode
+# Shashwat Jain — Professional Portfolio
 
-A GTA V–inspired AI/ML portfolio built with HTML, CSS, and vanilla JavaScript, hosted on GitHub Pages.
+White and Deep Sea Blue (#123456) portfolio with 13 dedicated project pages, original SVG concept illustrations, and a responsive project collection.
 
-Live site: https://maishashwathu.github.io/Portfolio/
+Live: https://shashwatjain01.github.io/Portfolio/
 
-## Features
+## Editing
 
-- Original sunset city illustration, responsive layouts, and day/night themes.
-- Seven project mission briefings with methods, results, source links, and evaluation limitations.
-- Project filters, interactive skill loadout, section minimap, and exploration progress.
-- Phone-style contact links and email copying. Typing `HIRE` outside editable fields opens a prefilled `mailto:` draft and reveals an on-page fallback link and address. The visitor must send the email; a configured email handler is required. No email is sent by the website.
-- Keyboard-accessible controls, native modal dialogs, reduced-motion support, and a printable résumé.
+Edit project-data.json for project content. Run node build.cjs to regenerate the homepage, project collection, project pages, and original vector illustrations. styles.css and app.js are maintained separately. No dependency installation or build is required by GitHub Pages: the generated HTML is committed.
 
-## Files
+Every project page contains Motivation, The need, a 2–3 bullet solution, and outcome/context. Existing evaluation limitations are retained. Illustrations are conceptual, not benchmark plots or application screenshots.
 
-- `index.html`: layout and portfolio content.
-- `styles.css`: responsive styling and themes.
-- `app.js`: interaction behavior.
-- `projects.js`: project data and evaluation context.
-- `assets/NM_SJ_Resume.pdf`: supplied résumé, updated November 3, 2026. Portfolio résumé links open this PDF.
-- `resume.html`: compatibility redirect for earlier résumé links.
-- `assets/los-santos.webp`: original AI-generated city illustration.
+The supplied résumé remains at assets/NM_SJ_Resume.pdf. resume.html preserves the previous résumé URL. There is no profile photograph in the website layout.
 
-Serve the repository root with any static web server for local development. No build or package installation is required. GitHub Pages publishes `main` from the repository root. Google Fonts is optional; system font fallbacks are provided.
-
-Theme and explored mission preferences use browser local storage, with an in-memory fallback when storage is unavailable. No analytics, accounts, or tracking services are included.
-
-This is an independent fan-inspired design and is not affiliated with Rockstar Games. Portfolio credentials and project results describe Shashwat Jain's work; the city artwork is fictional.
+All main content is available without JavaScript. JavaScript adds category/search filtering, mobile navigation, email copying, and the retained HIRE email-draft keyboard shortcut. It does not send email automatically.
