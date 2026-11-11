@@ -147,9 +147,9 @@
     ],
     "result": "English + Marathi",
     "resultNote": "Two language views for village-level ESG analysis.",
-    "limitation": "This page summarizes the résumé project. Survey data, computed scores, and impact measurements are not published here.",
+    "limitation": "The supplied dashboard screenshots show survey summaries and computed risk scores. They are static captures, not an interactive Power BI report. The underlying survey dataset, scoring methodology, and independent impact evaluation are not provided here.",
     "scope": "Résumé project",
-    "evidence": "Résumé summary"
+    "evidence": "Supplied dashboard screenshots and résumé summary"
   },
   {
     "id": "polymer-properties",
