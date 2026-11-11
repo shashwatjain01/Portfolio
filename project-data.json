@@ -209,7 +209,7 @@
     "limitation": "The coauthored manuscript is unpublished and has not been peer reviewed. Detector flags are not independently verified financial events. No trading backtest or predictive accuracy is claimed.",
     "extra": {
       "label": "Read unpublished manuscript",
-      "path": "blob/main/paper/market_anomaly_manuscript.pdf"
+      "path": "blob/main/Detailed%20Explanation.pdf"
     },
     "motivation": "Looking at a single price series can hide relationships between market segments. This study explores unusual behavior across multiple indices and features.",
     "need": "Create an interpretable exploratory workflow for comparing returns, volatility, and cross-index divergence without presenting detector flags as verified events.",
