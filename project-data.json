@@ -137,19 +137,19 @@
       "Data modeling",
       "Visualization"
     ],
-    "description": "English and Marathi dashboards for exploring village-level ESG survey results.",
-    "motivation": "Survey responses can be difficult to interpret when risk signals are spread across villages, focus groups, and individual questions.",
-    "need": "Make environmental, social, and governance results easier to investigate at both summary and question level, in English and Marathi.",
+    "description": "A Power BI dashboard exploring 1,496 survey responses through village-level ESG risks, focus-group comparisons, and question-level insights.",
+    "motivation": "Village-level survey findings can be difficult to interpret when environmental, social, and governance concerns are spread across locations, respondent groups, and individual questions. A shared dashboard brings these perspectives together to support closer investigation.",
+    "need": "Connect an overall ESG risk summary with village comparisons, the three ESG dimensions, and the questions behind higher scores. Response counts also need to remain visible so viewers can understand how survey participation varies across villages.",
     "solution": [
-      "Built Power BI dashboards covering village-level survey results, risk indices, and ESG dimension scores.",
-      "Added filters by village, focus group, and ESG dimension to support targeted investigation.",
-      "Included question-level analysis and response counts to help identify sources of risk."
+      "Built a Power BI overview combining the Village ESG Risk Index, village rankings, environmental/social/governance scores, and comparisons across farmers, students, health workers, homemakers, and teachers.",
+      "Added filters for village, ESG dimension, and focus group, alongside a total-response indicator, to support focused exploration of the survey results.",
+      "Created question-level views with top-risk rankings and selected question text in Marathi, plus a village-wise response-count chart to show survey coverage."
     ],
-    "result": "English + Marathi",
-    "resultNote": "Two language views for village-level ESG analysis.",
-    "limitation": "The supplied dashboard screenshots show survey summaries and computed risk scores. They are static captures, not an interactive Power BI report. The underlying survey dataset, scoring methodology, and independent impact evaluation are not provided here.",
-    "scope": "Résumé project",
-    "evidence": "Supplied dashboard screenshots and résumé summary"
+    "result": "1,496 survey responses",
+    "resultNote": "The captured All-filter overview displays a Village ESG Risk Index of 9.88, labeled Low Risk. The ESG dimension chart shows Environmental 11.6, Social 9.7, and Governance 8.4.",
+    "limitation": "These values describe the supplied dashboard screenshots and their captured filter state. The Low Risk label and dimension scores follow the dashboard’s own scoring; the underlying survey data and scoring methodology are not provided here for independent validation. The screenshots demonstrate the interface and analysis views, not measured social or environmental impact.",
+    "scope": "Power BI dashboard project",
+    "evidence": "Supplied ESG dashboard screenshots"
   },
   {
     "id": "polymer-properties",
