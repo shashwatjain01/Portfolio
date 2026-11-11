@@ -21,9 +21,9 @@
     ],
     "result": "5 LLM families",
     "resultNote": "FP4, NF4, and NVFP4 compared with 16-bit baselines.",
-    "limitation": "The résumé describes the evaluation scope. Aggregate quality, speed, and energy improvements are not published here; no universal efficiency gain is claimed.",
+    "limitation": "The supplied presentation reports experiments on five LLM families using an NVIDIA RTX PRO 6000 Blackwell GPU. Results depend on the model, format, and workload; they are not universal efficiency guarantees. Carbon and water figures are estimates derived from energy and conversion factors. The separate review paper synthesizes prior research and does not report new experiments.",
     "scope": "Capstone project",
-    "evidence": "Résumé summary"
+    "evidence": "Supplied final presentation and literature-review paper"
   },
   {
     "id": "multilingual-rag",

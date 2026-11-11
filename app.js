@@ -13,3 +13,15 @@ const email='shashwatjain8733@gmail.com',subject='Opportunity for Shashwat Jain'
 const mailto='mailto:'+email+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
 document.querySelectorAll('[data-hire-link]').forEach(link=>link.href=mailto);
 let buffer='';document.addEventListener('keydown',e=>{if(e.ctrlKey||e.metaKey||e.altKey||e.repeat||e.isComposing||e.target.closest('input,textarea,select,[contenteditable]:not([contenteditable="false"]),[role="textbox"]')){buffer='';return}if(e.key.length!==1){if(e.key!=='Shift')buffer='';return}buffer=(buffer+e.key.toUpperCase()).slice(-4);if(buffer==='HIRE'){buffer='';const panel=document.querySelector('#hire-email-panel');if(panel)panel.hidden=false;document.querySelector('#contact')?.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});notify('Opening an email draft. Review it and press Send in your email app.');window.location.href=mailto}});
+
+// Progressive enhancement: the first slide and original downloads work without JavaScript.
+const slideViewer=document.querySelector('[data-slide-viewer]');
+if(slideViewer){
+ const titles=['Introduction','Problem statement','Objectives','System pipeline','Experimental setup','How 4-bit quantization works','NVFP4 on tensor cores','Our Triton 4-bit kernel','Kernel results','Memory footprint','Live power traces','Energy per token','Batched energy','Accuracy preserved','Carbon and water estimates','Key findings','Attainment of objectives','Publications (as supplied)','Future scope','References'];
+ let slideIndex=0;
+ const previous=slideViewer.querySelector('[data-slide-prev]'),next=slideViewer.querySelector('[data-slide-next]');
+ function showSlide(){const src=`../assets/llm-quantization/slide-${String(slideIndex+1).padStart(2,'0')}.webp`;const img=slideViewer.querySelector('[data-slide-image]');img.src=src;img.alt=`Slide ${slideIndex+1}: ${titles[slideIndex]}`;slideViewer.querySelector('[data-slide-full]').href=src;slideViewer.querySelector('[data-slide-status]').textContent=`${slideIndex+1} / ${titles.length} · ${titles[slideIndex]}`;previous.disabled=slideIndex===0;next.disabled=slideIndex===titles.length-1;}
+ previous.addEventListener('click',()=>{if(slideIndex>0){slideIndex--;showSlide();}});next.addEventListener('click',()=>{if(slideIndex<titles.length-1){slideIndex++;showSlide();}});
+ slideViewer.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();(e.key==='ArrowLeft'?previous:next).click();}});
+ slideViewer.querySelector('.slide-controls').hidden=false;showSlide();
+}
